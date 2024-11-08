@@ -21,7 +21,9 @@ def on_button_pressed_a():
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
 def on_sound_loud():
-    basic.show_number(input.magnetic_force(Dimension.X))
+    global time
+    time = "" + str(hour) + (":" + str(minute))
+    basic.show_string(time)
 input.on_sound(DetectedSound.LOUD, on_sound_loud)
 
 def on_button_pressed_ab():
@@ -43,7 +45,7 @@ def on_button_pressed_b():
 input.on_button_pressed(Button.B, on_button_pressed_b)
 
 def on_gesture_shake():
-    pass
+    basic.show_number(input.magnetic_force(Dimension.X))
 input.on_gesture(Gesture.SHAKE, on_gesture_shake)
 
 def on_logo_pressed():
@@ -52,6 +54,7 @@ input.on_logo_event(TouchButtonEvent.PRESSED, on_logo_pressed)
 
 hour = 0
 minute = 0
+time = ""
 Logging = False
 Logging = False
 ampm = False
